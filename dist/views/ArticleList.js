@@ -2,6 +2,7 @@
  * @jsx React.DOM
  */
 
+
 function(){
 var ArticleList = React.createClass({displayName: 'ArticleList',
   getInitialState: function() {
@@ -44,4 +45,4 @@ React.renderComponent(
   ArticleList(null),
   document.getElementById('articleList')
 );
-}()
+}();
