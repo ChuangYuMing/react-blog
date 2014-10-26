@@ -7,7 +7,7 @@ var plumber = require('gulp-plumber');
 
 
 gulp.task('jsx', function () {
-    return gulp.src('javascript/**/*.js')
+    return gulp.src('app/js/**/*.js')
         .pipe(plumber({
           errorHandler: onError
         }))
@@ -17,8 +17,8 @@ gulp.task('jsx', function () {
 
 // Watch files
 gulp.task('watch', function() {
-  gulp.watch('*.html', ['bs-reload']);
-  gulp.watch('javascript/*.js', ['jsx', 'bs-reload']);
+  gulp.watch('dist/*.html', ['bs-reload']);
+  gulp.watch('app/js/**/*.js', ['jsx', 'bs-reload']);
 });
 
 // Error handeler
@@ -38,7 +38,7 @@ gulp.task('bs-reload', ['jsx'], function () {
 gulp.task('browser-sync', function() {
   browserSync({
     server: {
-      baseDir: './'
+      baseDir: './dist/'
     },
     port: 8080,
     watchOptions: {debounceDelay: 1000}
