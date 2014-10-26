@@ -11,7 +11,6 @@
     "gulp-plumber": "^0.6.6",
     "gulp-react": "^1.0.2",
     "gulp-util": "^3.0.1",
-    "loopback": "^2.6.0",
     "loopback-datasource-juggler": "^2.10.2"
   },
   "scripts": {

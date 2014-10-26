@@ -9,25 +9,25 @@ var datas = [
 ]
 
 var ArticleList = React.createClass({
-  getInitialstate: function() {
+  getInitialState: function() {
     return {data: []};
   },
   componentWillMount: function() {
     var that = this;
-    this.setState({data: datas});
-    // $.ajax({
-    //   url: this.props.url,
-    //   dataType: 'json',
-    // })
-    // .done(function(res){
-    //   console.log(res);
-    //   that.setState({data: res});
-    // })
+    $.ajax({
+      url: 'http://140.123.175.91:3000/api/articles',
+      dataType: 'json',
+    })
+    .done(function(res){
+      console.log(res);
+      that.setState({data: res});
+      // console.log(this.state);
+    })
   },
   render: function() {
     var length = this.state.data.length;
     var listItems = this.state.data.map(function(data, index){
-      return <ListItem key={index} title={data.title} content={data.content} date={data.date} />  
+      return <ListItem key={index} title={data.Title} content={data.Content} date={data.OnCreate} />  
     });
     return <div>{listItems}</div>
   }

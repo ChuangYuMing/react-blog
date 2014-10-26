@@ -5,7 +5,16 @@
 var PostArticle = React.createClass({displayName: 'PostArticle',
   handleContentSubmit: function(content) {    
     console.log(content); 
-
+    $.ajax({
+      url: 'http://140.123.175.91:3000/api/articles',
+      dataType: 'json',
+      method: 'POST',
+      data: content
+    })
+    .done(function(res){
+      console.log(res);
+      that.setState({data: res});
+    })
   },
   render: function() {
     return (
@@ -20,7 +29,7 @@ var ArtivleForm = React.createClass({displayName: 'ArtivleForm',
     var content = this.refs.content.getDOMNode().value;
     var date = new Date().toISOString();
     // console.log(date);
-    this.props.onContentSubmit({title: title, content: content, date: date});
+    this.props.onContentSubmit({Title: title, Content: content, OnCreate: date});
     return false;
   },
   render: function() {
