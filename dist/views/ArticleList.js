@@ -2,8 +2,12 @@
  * @jsx React.DOM
  */
 
+var datas = [
+  {title: 'title1', date: 'aaa', content: 'content1'},
+  {title: 'title2', date: 'bbb', content: 'content2'},
+  {title: 'title3', date: 'ccc', content: 'content3'}
+]
 
-function(){
 var ArticleList = React.createClass({displayName: 'ArticleList',
   getInitialState: function() {
     return {data: []};
@@ -45,4 +49,3 @@ React.renderComponent(
   ArticleList(null),
   document.getElementById('articleList')
 );
-}();

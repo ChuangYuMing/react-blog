@@ -5,6 +5,7 @@
 var PostArticle = React.createClass({displayName: 'PostArticle',
   handleContentSubmit: function(content) {    
     console.log(content); 
+    var that =this;
     $.ajax({
       url: 'http://140.123.175.91:3000/api/articles',
       dataType: 'json',
